@@ -29,6 +29,15 @@ class SatrancView(View):
         for index in range(5):
             del tahta[10]
 
+        tahta = [w.replace(w, w + "</span>") for w in tahta]
+
+        tahta = [w.replace('[46m', '''<span style="background-color:#37a7b8">''') for w in tahta] # BG_COLOR1
+        tahta = [w.replace('[106m', '''<span style="background-color:#38e4e4">''') for w in tahta] # BG_COLOR2
+        tahta = [w.replace('[44m', '''<span style="background-color:#1c28bd">''') for w in tahta] # BG_CERCEVE
+        tahta = [w.replace('[30m', '''<span style="color:#081115">''') for w in tahta] # FG_TASSIYAH
+        tahta = [w.replace('[97m', '''<span style="color:#ececec">''') for w in tahta] # FG_TASBEYAZ
+        tahta = [w.replace('[44m', '''<span style="background-color:#1c28bd">''') for w in tahta] # BG_BLUE
+
         return render(request, 'satranc.html', {'tahta': tahta})
 
     def post(self, request):
@@ -55,11 +64,20 @@ class SatrancView(View):
 
         del tahta[0]
 
-        for index in range(5):
-            del tahta[10]
+        if "Hatalı Giriş !" not in tahta:
+            for index in range(5):
+                del tahta[10]
+        else:
+            for index in range(7):
+                del tahta[10]
 
-        print(tahta)
+        tahta = [w.replace(w, w + "</span>") for w in tahta]
 
-        #gelen_veri = ""
+        tahta = [w.replace('[46m', '''<span style="background-color:#37a7b8">''') for w in tahta] # BG_COLOR1
+        tahta = [w.replace('[106m', '''<span style="background-color:#38e4e4">''') for w in tahta] # BG_COLOR2
+        tahta = [w.replace('[44m', '''<span style="background-color:#1c28bd">''') for w in tahta] # BG_CERCEVE
+        tahta = [w.replace('[30m', '''<span style="color:#081115">''') for w in tahta] # FG_TASSIYAH
+        tahta = [w.replace('[97m', '''<span style="color:#ececec">''') for w in tahta] # FG_TASBEYAZ
+        tahta = [w.replace('[44m', '''<span style="background-color:#1c28bd">''') for w in tahta] # BG_BLUE
 
         return render(request, 'satranc.html', {'tahta': tahta} )

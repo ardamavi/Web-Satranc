@@ -9,9 +9,13 @@
 </head>
 
 <body>
+  <pre style="line-height: 0.4em;">
+    <span>
   {% for t in tahta %}
-    {{ t }} <br />
+    {{ t|safe }} <br />
   {% endfor %}
+</span>
+  </pre>
   <form method="post" style="width: 250px; padding: 20px;">
     {% csrf_token %}
     <div class="form-group">
