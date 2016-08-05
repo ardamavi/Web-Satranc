@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-<title>Satranc</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+    
+    
+    <script type="text/javascript" src="script.js"></script>
+    
+  <script>
+  
+  </script>
 </head>
-
 <body>
-  <pre style="line-height: 0.6em;">
-    <span>
-  {% for t in tahta %}
-    {{ t|safe }}
-  {% endfor %}
-</span>
-  </pre>
-  <form method="post" style="width: 250px; padding: 20px;">
-    {% csrf_token %}
-    <div class="form-group">
-      <label>Taşın konumunu:</label>
-      <input class="form-control" name="tasKonum" placeholder="Tas Konum" maxlength="8">
-    </div>
-    <div class="form-group">
-      <label>Oynayacağınız Yerin Konumu:</label>
-      <input class="form-control" name="oynanacakYer" placeholder="Oynanacak Yer Konum" maxlength="8">
-    </div>
-      <div style="padding-left: 55px;">
-        <button type="submit" class="btn btn-default">Gönder</button>
-      <div/>
-  </form>
-
+ <center>
+     
+<!--    <div id="draggable" class="ui-widget-content">
+    </div>-->
+     
+    <span><a class="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a> - Satranç</span>
+ </center>
 </body>
 </html>

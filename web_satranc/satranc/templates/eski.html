@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Satranc</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <pre style="line-height: 0.6em;">
+    <span>
+  {% for t in tahta %}
+    {{ t|safe }}
+  {% endfor %}
+</span>
+  </pre>
+  <form method="post" style="width: 250px; padding: 20px;">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Taşın konumunu:</label>
+      <input class="form-control" name="tasKonum" placeholder="Tas Konum" maxlength="8">
+    </div>
+    <div class="form-group">
+      <label>Oynayacağınız Yerin Konumu:</label>
+      <input class="form-control" name="oynanacakYer" placeholder="Oynanacak Yer Konum" maxlength="8">
+    </div>
+      <div style="padding-left: 55px;">
+        <button type="submit" class="btn btn-default">Gönder</button>
+      <div/>
+  </form>
+
+</body>
+</html>
