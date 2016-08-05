@@ -32,10 +32,12 @@ class SatrancView(View):
 
 
         for string in tahta:
+            eski_str = string
             yeni_s = ""
 
             renk_geldi = False
             renk_str = ""
+            span_counter = 0
             char_counter = 0
             char_geldi = False
             for s in string:
@@ -51,6 +53,7 @@ class SatrancView(View):
                         yeni_s += '<span style="color:#081115">'
                     elif renk_str == '[106m':
                         yeni_s += '<span style="background-color:#38e4e4">'
+                    span_counter += 1
                     char_geldi = True
                     renk_str = ""
                     if s == "\x1b":
@@ -66,7 +69,9 @@ class SatrancView(View):
                     yeni_s += s
                     char_counter += 1
                     if char_counter == 2:
-                        yeni_s += '</span>'
+                        while span_counter != 0:
+                            yeni_s += '</span>'
+                            span_counter -= 1
                         char_counter = 0
                         char_geldi = False
                     continue
@@ -76,7 +81,9 @@ class SatrancView(View):
                     yeni_s += s
 
             string = yeni_s
-            print(string)
+            tahta = [w.replace(eski_str, string) for w in tahta]
+
+        tahta[0] = tahta[9] = """<span style="color:#ececec"><span style="background-color:#1c28bd">    A  B  C  D  E  F  G  H    </span></span>"""
 
         for t in tahta:
             t = t + "<br>"
