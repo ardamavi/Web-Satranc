@@ -1,28 +1,150 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+
+    <head> 
+        {% load static %}
     
-    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="jquery-ui.min.css"/>
-    <link rel="stylesheet" href="styles.css"/>
+        <title>Arda Mavi</title>
+        
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="{% static "jquery-3.1.0.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "jquery-ui.min.js" %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "jquery-ui.min.css" %}">
+        
+        <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+        <script type="text/javascript" src="{% static "script.js" %}"></script>
+        
+    </head>
+
+    <body>
+
+        <div class="chessboard">
+            
+<div class="locationCorner"></div>
+<div class="locationChar">A</div>
+<div class="locationChar">B</div>
+<div class="locationChar">C</div>
+<div class="locationChar">D</div>
+<div class="locationChar">E</div>
+<div class="locationChar">F</div>
+<div class="locationChar">G</div>
+<div class="locationChar">H</div>
+<div class="locationCorner"></div>          
+            
+<div class="location" >1</div>  
+            
+<div class="black" id="1a"><div class="whiteMan">&#x265C;</div></div>
+<div class="white" id="1b"><div class="whiteMan">&#x265E;</div></div>
+<div class="black" id="1c"><div class="whiteMan">&#x265D;</div></div>
+<div class="white" id="1d"><div class="whiteMan">&#x265B;</div></div>
+<div class="black" id="1e"><div class="whiteMan">&#x265A;</div></div>
+<div class="white" id="1f"><div class="whiteMan">&#x265D;</div></div>
+<div class="black" id="1g"><div class="whiteMan">&#x265E;</div></div>
+<div class="white" id="1h"><div class="whiteMan">&#x265C;</div></div>
+   
+<div class="location" >1</div>   
+<div class="location" >2</div>  
+            
+<div class="white" id="2a"><div class="whiteMan">&#x265F;</div></div>
+<div class="black" id="2b"><div class="whiteMan">&#x265F;</div></div>
+<div class="white" id="2c"><div class="whiteMan">&#x265F;</div></div>
+<div class="black" id="2d"><div class="whiteMan">&#x265F;</div></div>
+<div class="white" id="2e"><div class="whiteMan">&#x265F;</div></div>
+<div class="black" id="2f"><div class="whiteMan">&#x265F;</div></div>
+<div class="white" id="2g"><div class="whiteMan">&#x265F;</div></div>
+<div class="black" id="2h"><div class="whiteMan">&#x265F;</div></div>         
+            
+<div class="location" >2</div>   
+<div class="location" >3</div>
+            
+<div class="black" id="3a"></div>
+<div class="white" id="3b"></div>
+<div class="black" id="3c"></div>
+<div class="white" id="3d"></div>
+<div class="black" id="3e"></div>
+<div class="white" id="3f"></div>
+<div class="black" id="3g"></div>
+<div class="white" id="3h"></div>
+            
+<div class="location" >3</div>   
+<div class="location" >4</div>
+            
+<div class="white" id="4a"></div>
+<div class="black" id="4b"></div>
+<div class="white" id="4c"></div>
+<div class="black" id="4d"></div>
+<div class="white" id="4e"></div>
+<div class="black" id="4f"></div>
+<div class="white" id="4g"></div>
+<div class="black" id="4h"></div>
+            
+<div class="location" >4</div>   
+<div class="location" >5</div> 
+            
+<div class="black" id="5a"></div>
+<div class="white" id="5b"></div>
+<div class="black" id="5c"></div>
+<div class="white" id="5d"></div>
+<div class="black" id="5e"></div>
+<div class="white" id="5f"></div>
+<div class="black" id="5g"></div>
+<div class="white" id="5h"></div>
+            
+<div class="location" >5</div>   
+<div class="location" >6</div> 
+            
+<div class="white" id="6a"></div>
+<div class="black" id="6b"></div>
+<div class="white" id="6c"></div>
+<div class="black" id="6d"></div>
+<div class="white" id="6e"></div>
+<div class="black" id="6f"></div>
+<div class="white" id="6g"></div>
+<div class="black" id="6h"></div>
+            
+<div class="location" >6</div>   
+<div class="location" >7</div> 
+            
+<div class="black" id="7a"><div class="blackMan">&#x265F;</div></div>
+<div class="white" id="7b"><div class="blackMan">&#x265F;</div></div>
+<div class="black" id="7c"><div class="blackMan">&#x265F;</div></div>
+<div class="white" id="7d"><div class="blackMan">&#x265F;</div></div>
+<div class="black" id="7e"><div class="blackMan">&#x265F;</div></div>
+<div class="white" id="7f"><div class="blackMan">&#x265F;</div></div>
+<div class="black" id="7g"><div class="blackMan">&#x265F;</div></div>
+<div class="white" id="7h"><div class="blackMan">&#x265F;</div></div>
+            
+<div class="location" >7</div>   
+<div class="location" >8</div> 
+
+<div class="white" id="8a"><div class="blackMan">&#x265C;</div></div>
+<div class="black" id="8b"><div class="blackMan">&#x265E;</div></div>
+<div class="white" id="8c"><div class="blackMan">&#x265D;</div></div>
+<div class="black" id="8d"><div class="blackMan">&#x265B;</div></div>
+<div class="white" id="8e"><div class="blackMan">&#x265A;</div></div>
+<div class="black" id="8f"><div class="blackMan">&#x265D;</div></div>
+<div class="white" id="8g"><div class="blackMan">&#x265E;</div></div>
+<div class="black" id="8h"><div class="blackMan">&#x265C;</div></div>
+              
+<div class="location" >8</div> 
+            
+<div class="locationCorner"></div>
+<div class="locationChar">A</div>
+<div class="locationChar">B</div>
+<div class="locationChar">C</div>
+<div class="locationChar">D</div>
+<div class="locationChar">E</div>
+<div class="locationChar">F</div>
+<div class="locationChar">G</div>
+<div class="locationChar">H</div>
+<div class="locationCorner"></div>
+    <center><hr/>
+        <span>By <a class="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a></span>
+    </center>
+</div>
+        
+        
+        
+    </body>
     
-    
-    <script type="text/javascript" src="script.js"></script>
-    
-  <script>
-  
-  </script>
-</head>
-<body>
- <center>
-     
-<!--    <div id="draggable" class="ui-widget-content">
-    </div>-->
-     
-    <span><a class="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a> - Satranç</span>
- </center>
-</body>
 </html>

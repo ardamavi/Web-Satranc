@@ -83,7 +83,7 @@ class SatrancView(View):
 
         tahta[0] = tahta[9] = """<span style="color:#ececec"><span style="background-color:#1c28bd">    A  B  C  D  E  F  G  H    </span></span>"""
 
-        return render(request, 'eski.html', {'tahta': tahta})
+        return render(request, 'satranc.html', {'tahta': tahta})
 
     def post(self, request):
 
@@ -170,4 +170,4 @@ class SatrancView(View):
 
         tahta[0] = tahta[9] = """<span style="color:#ececec"><span style="background-color:#1c28bd">    A  B  C  D  E  F  G  H    </span></span>"""
 
-        return render(request, 'eski.html', {'tahta': tahta} )
+        return render(request, 'satranc.html', {'tahta': tahta} )

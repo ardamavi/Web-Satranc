@@ -1,0 +1,75 @@
+#draggable { 
+    width: 150px; 
+    height: 150px; 
+    padding: 0.5em; 
+}
+
+.chessboard {
+    width: 360px;
+    height: 360px;
+}
+.black {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: #37a7b8;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+.white {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: #38e4e4;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.blackMan{
+    color: #191919;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+.whiteMan {
+    color: #f8f8f8;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    position:absolute;
+}
+
+.locationChar {
+    color: #f8f8f8;
+    float: left;
+    width: 40px;
+    height: 20px;
+    background-color: #1c28bd;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.location{
+    text-align: center;
+    background-color: #1c28bd;
+    float: left;
+    width: 20px;
+    height: 40px;
+    color: #f8f8f8;
+    display: table-cell;
+    vertical-align:middle;
+}
+.locationCorner {
+    color: #f8f8f8;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: #1c28bd;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
