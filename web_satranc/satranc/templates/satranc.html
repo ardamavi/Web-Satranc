@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 
-    <head> 
+    <head>
         {% load static %}
-    
+
         <title>Arda Mavi</title>
-        
+
         <meta charset="UTF-8">
         <script type="text/javascript" src="{% static "jquery-3.1.0.min.js" %}"></script>
         <script type="text/javascript" src="{% static "jquery-ui.min.js" %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static "jquery-ui.min.css" %}">
-        
+
         <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
         <script type="text/javascript" src="{% static "script.js" %}"></script>
-        
+
     </head>
 
     <body>
 
         <div class="chessboard">
-            
+
 <div class="locationCorner"></div>
 <div class="locationChar">A</div>
 <div class="locationChar">B</div>
@@ -29,105 +29,105 @@
 <div class="locationChar">F</div>
 <div class="locationChar">G</div>
 <div class="locationChar">H</div>
-<div class="locationCorner"></div>          
-            
-<div class="location" >1</div>  
-            
-<div class="black" id="1a"><div class="whiteMan">&#x265C;</div></div>
-<div class="white" id="1b"><div class="whiteMan">&#x265E;</div></div>
-<div class="black" id="1c"><div class="whiteMan">&#x265D;</div></div>
-<div class="white" id="1d"><div class="whiteMan">&#x265B;</div></div>
-<div class="black" id="1e"><div class="whiteMan">&#x265A;</div></div>
-<div class="white" id="1f"><div class="whiteMan">&#x265D;</div></div>
-<div class="black" id="1g"><div class="whiteMan">&#x265E;</div></div>
-<div class="white" id="1h"><div class="whiteMan">&#x265C;</div></div>
-   
-<div class="location" >1</div>   
-<div class="location" >2</div>  
-            
-<div class="white" id="2a"><div class="whiteMan">&#x265F;</div></div>
-<div class="black" id="2b"><div class="whiteMan">&#x265F;</div></div>
-<div class="white" id="2c"><div class="whiteMan">&#x265F;</div></div>
-<div class="black" id="2d"><div class="whiteMan">&#x265F;</div></div>
-<div class="white" id="2e"><div class="whiteMan">&#x265F;</div></div>
-<div class="black" id="2f"><div class="whiteMan">&#x265F;</div></div>
-<div class="white" id="2g"><div class="whiteMan">&#x265F;</div></div>
-<div class="black" id="2h"><div class="whiteMan">&#x265F;</div></div>         
-            
-<div class="location" >2</div>   
-<div class="location" >3</div>
-            
-<div class="black" id="3a"></div>
-<div class="white" id="3b"></div>
-<div class="black" id="3c"></div>
-<div class="white" id="3d"></div>
-<div class="black" id="3e"></div>
-<div class="white" id="3f"></div>
-<div class="black" id="3g"></div>
-<div class="white" id="3h"></div>
-            
-<div class="location" >3</div>   
-<div class="location" >4</div>
-            
-<div class="white" id="4a"></div>
-<div class="black" id="4b"></div>
-<div class="white" id="4c"></div>
-<div class="black" id="4d"></div>
-<div class="white" id="4e"></div>
-<div class="black" id="4f"></div>
-<div class="white" id="4g"></div>
-<div class="black" id="4h"></div>
-            
-<div class="location" >4</div>   
-<div class="location" >5</div> 
-            
-<div class="black" id="5a"></div>
-<div class="white" id="5b"></div>
-<div class="black" id="5c"></div>
-<div class="white" id="5d"></div>
-<div class="black" id="5e"></div>
-<div class="white" id="5f"></div>
-<div class="black" id="5g"></div>
-<div class="white" id="5h"></div>
-            
-<div class="location" >5</div>   
-<div class="location" >6</div> 
-            
-<div class="white" id="6a"></div>
-<div class="black" id="6b"></div>
-<div class="white" id="6c"></div>
-<div class="black" id="6d"></div>
-<div class="white" id="6e"></div>
-<div class="black" id="6f"></div>
-<div class="white" id="6g"></div>
-<div class="black" id="6h"></div>
-            
-<div class="location" >6</div>   
-<div class="location" >7</div> 
-            
-<div class="black" id="7a"><div class="blackMan">&#x265F;</div></div>
-<div class="white" id="7b"><div class="blackMan">&#x265F;</div></div>
-<div class="black" id="7c"><div class="blackMan">&#x265F;</div></div>
-<div class="white" id="7d"><div class="blackMan">&#x265F;</div></div>
-<div class="black" id="7e"><div class="blackMan">&#x265F;</div></div>
-<div class="white" id="7f"><div class="blackMan">&#x265F;</div></div>
-<div class="black" id="7g"><div class="blackMan">&#x265F;</div></div>
-<div class="white" id="7h"><div class="blackMan">&#x265F;</div></div>
-            
-<div class="location" >7</div>   
-<div class="location" >8</div> 
+<div class="locationCorner"></div>
 
-<div class="white" id="8a"><div class="blackMan">&#x265C;</div></div>
-<div class="black" id="8b"><div class="blackMan">&#x265E;</div></div>
-<div class="white" id="8c"><div class="blackMan">&#x265D;</div></div>
-<div class="black" id="8d"><div class="blackMan">&#x265B;</div></div>
-<div class="white" id="8e"><div class="blackMan">&#x265A;</div></div>
-<div class="black" id="8f"><div class="blackMan">&#x265D;</div></div>
-<div class="white" id="8g"><div class="blackMan">&#x265E;</div></div>
-<div class="black" id="8h"><div class="blackMan">&#x265C;</div></div>
+<div class="location" >1</div>
+
+<div class="black" id="1a"><div class="whiteMan">{{ tahta.1.4 }}</div></div>
+<div class="white" id="1b"><div class="whiteMan">{{ tahta.1.7 }}</div></div>
+<div class="black" id="1c"><div class="whiteMan">{{ tahta.1.10 }}</div></div>
+<div class="white" id="1d"><div class="whiteMan">{{ tahta.1.13 }}</div></div>
+<div class="black" id="1e"><div class="whiteMan">{{ tahta.1.16 }}</div></div>
+<div class="white" id="1f"><div class="whiteMan">{{ tahta.1.19 }}</div></div>
+<div class="black" id="1g"><div class="whiteMan">{{ tahta.1.22 }}</div></div>
+<div class="white" id="1h"><div class="whiteMan">{{ tahta.1.25 }}</div></div>
+
+<div class="location" >1</div>
+<div class="location" >2</div>
+
+<div class="white" id="2a"><div class="whiteMan">{{ tahta.2.4 }}</div></div>
+<div class="black" id="2b"><div class="whiteMan">{{ tahta.2.7 }}</div></div>
+<div class="white" id="2c"><div class="whiteMan">{{ tahta.2.10 }}</div></div>
+<div class="black" id="2d"><div class="whiteMan">{{ tahta.2.13 }}</div></div>
+<div class="white" id="2e"><div class="whiteMan">{{ tahta.2.16 }}</div></div>
+<div class="black" id="2f"><div class="whiteMan">{{ tahta.2.19 }}</div></div>
+<div class="white" id="2g"><div class="whiteMan">{{ tahta.2.22 }}</div></div>
+<div class="black" id="2h"><div class="whiteMan">{{ tahta.2.25 }}</div></div>
+
+<div class="location" >2</div>
+<div class="location" >3</div>
+
+<div class="black" id="3a">{{ tahta.3.4 }}</div>
+<div class="white" id="3b">{{ tahta.3.7 }}</div>
+<div class="black" id="3c">{{ tahta.3.10 }}</div>
+<div class="white" id="3d">{{ tahta.3.13 }}</div>
+<div class="black" id="3e">{{ tahta.3.16 }}</div>
+<div class="white" id="3f">{{ tahta.3.19 }}</div>
+<div class="black" id="3g">{{ tahta.3.22 }}</div>
+<div class="white" id="3h">{{ tahta.3.25 }}</div>
+
+<div class="location" >3</div>
+<div class="location" >4</div>
+
+<div class="white" id="4a">{{ tahta.4.4 }}</div>
+<div class="black" id="4b">{{ tahta.4.7 }}</div>
+<div class="white" id="4c">{{ tahta.4.10 }}</div>
+<div class="black" id="4d">{{ tahta.4.13 }}</div>
+<div class="white" id="4e">{{ tahta.4.16 }}</div>
+<div class="black" id="4f">{{ tahta.4.19 }}</div>
+<div class="white" id="4g">{{ tahta.4.22 }}</div>
+<div class="black" id="4h">{{ tahta.4.25 }}</div>
+
+<div class="location" >4</div>
+<div class="location" >5</div>
+
+<div class="black" id="5a">{{ tahta.5.4 }}</div>
+<div class="white" id="5b">{{ tahta.5.7 }}</div>
+<div class="black" id="5c">{{ tahta.5.10 }}</div>
+<div class="white" id="5d">{{ tahta.5.13 }}</div>
+<div class="black" id="5e">{{ tahta.5.16 }}</div>
+<div class="white" id="5f">{{ tahta.5.19 }}</div>
+<div class="black" id="5g">{{ tahta.5.22 }}</div>
+<div class="white" id="5h">{{ tahta.5.25 }}</div>
+
+<div class="location" >5</div>
+<div class="location" >6</div>
+
+<div class="white" id="6a">{{ tahta.6.4 }}</div>
+<div class="black" id="6b">{{ tahta.6.7 }}</div>
+<div class="white" id="6c">{{ tahta.6.10 }}</div>
+<div class="black" id="6d">{{ tahta.6.13 }}</div>
+<div class="white" id="6e">{{ tahta.6.16 }}</div>
+<div class="black" id="6f">{{ tahta.6.19 }}</div>
+<div class="white" id="6g">{{ tahta.6.22 }}</div>
+<div class="black" id="6h">{{ tahta.6.25 }}</div>
+
+<div class="location" >6</div>
+<div class="location" >7</div>
+
+<div class="black" id="7a"><div class="blackMan">{{ tahta.7.4 }}</div></div>
+<div class="white" id="7b"><div class="blackMan">{{ tahta.7.7 }}</div></div>
+<div class="black" id="7c"><div class="blackMan">{{ tahta.7.10 }}</div></div>
+<div class="white" id="7d"><div class="blackMan">{{ tahta.7.13 }}</div></div>
+<div class="black" id="7e"><div class="blackMan">{{ tahta.7.16 }}</div></div>
+<div class="white" id="7f"><div class="blackMan">{{ tahta.7.19 }}</div></div>
+<div class="black" id="7g"><div class="blackMan">{{ tahta.7.22 }}</div></div>
+<div class="white" id="7h"><div class="blackMan">{{ tahta.7.25 }}</div></div>
+
+<div class="location" >7</div>
+<div class="location" >8</div>
+
+<div class="white" id="8a"><div class="blackMan">{{ tahta.8.4 }}</div></div>
+<div class="black" id="8b"><div class="blackMan">{{ tahta.8.7 }}</div></div>
+<div class="white" id="8c"><div class="blackMan">{{ tahta.8.10 }}</div></div>
+<div class="black" id="8d"><div class="blackMan">{{ tahta.8.13 }}</div></div>
+<div class="white" id="8e"><div class="blackMan">{{ tahta.8.16 }}</div></div>
+<div class="black" id="8f"><div class="blackMan">{{ tahta.8.19 }}</div></div>
+<div class="white" id="8g"><div class="blackMan">{{ tahta.8.22 }}</div></div>
+<div class="black" id="8h"><div class="blackMan">{{ tahta.8.25 }}</div></div>
               
-<div class="location" >8</div> 
-            
+<div class="location" >8</div>
+
 <div class="locationCorner"></div>
 <div class="locationChar">A</div>
 <div class="locationChar">B</div>
@@ -142,9 +142,9 @@
         <span>By <a class="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a></span>
     </center>
 </div>
-        
-        
-        
+
+
+
     </body>
-    
+
 </html>
