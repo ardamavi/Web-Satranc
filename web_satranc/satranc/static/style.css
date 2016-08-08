@@ -1,12 +1,7 @@
-#draggable { 
-    width: 150px; 
-    height: 150px; 
-    padding: 0.5em; 
-}
-
 .chessboard {
     width: 360px;
     height: 360px;
+    cursor:default;
 }
 .black {
     float: left;
@@ -32,6 +27,7 @@
     font-size: 30px;
     width: 40px;
     height: 40px;
+    cursor:move;
 }
 
 .whiteMan {
@@ -40,6 +36,7 @@
     width: 40px;
     height: 40px;
     position:absolute;
+    cursor:move;
 }
 
 .locationChar {

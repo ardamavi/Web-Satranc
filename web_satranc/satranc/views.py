@@ -43,14 +43,8 @@ class SatrancView(View):
                     renk_geldi = False
                     if renk_str == '[97m':
                         yeni_s += '' # <span style="color:#ececec">
-                    elif renk_str == '[44m':
-                        yeni_s += '' # <span style="background-color:#1c28bd">
-                    elif renk_str == '[46m':
-                        yeni_s += '' # <span style="background-color:#37a7b8">
                     elif renk_str == '[30m':
                         yeni_s += '' # <span style="color:#081115">
-                    elif renk_str == '[106m':
-                        yeni_s += '' # <span style="background-color:#38e4e4">
                     span_counter += 1
                     char_geldi = True
                     renk_str = ""
@@ -129,15 +123,9 @@ class SatrancView(View):
                 if renk_geldi and renk_str in ['[97m', '[44m', '[46m', '[106m', '[30m']:
                     renk_geldi = False
                     if renk_str == '[97m':
-                        yeni_s += '<span style="color:#ececec">'
-                    elif renk_str == '[44m':
-                        yeni_s += '<span style="background-color:#1c28bd">'
-                    elif renk_str == '[46m':
-                        yeni_s += '<span style="background-color:#37a7b8">'
+                        yeni_s += '' # <span style="color:#ececec">
                     elif renk_str == '[30m':
-                        yeni_s += '<span style="color:#081115">'
-                    elif renk_str == '[106m':
-                        yeni_s += '<span style="background-color:#38e4e4">'
+                        yeni_s += '' # <span style="color:#081115">
                     span_counter += 1
                     char_geldi = True
                     renk_str = ""
@@ -155,7 +143,7 @@ class SatrancView(View):
                     char_counter += 1
                     if char_counter == 2:
                         while span_counter != 0:
-                            yeni_s += '</span>'
+                            yeni_s += '' # </span>
                             span_counter -= 1
                         char_counter = 0
                         char_geldi = False
