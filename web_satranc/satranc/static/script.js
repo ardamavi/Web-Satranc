@@ -1,11 +1,13 @@
-$( function() {
+/*$( function() {
 
     $(".whiteMan").draggable({
-        revert: 'invalid', snap: ".black , .white"
+        revert: 'invalid',
+        snap: ".black , .white"
     });
 
     $(".blackMan").draggable({
-        revert: 'invalid', snap: ".black , .white"
+        revert: 'invalid',
+        snap: ".black , .white"
     });
 
 
@@ -13,20 +15,31 @@ $( function() {
 
     $(".black").droppable();
 
-  } );
+    startId = "";
 
+    $(".whiteMan").on("dragstart", function(event, ui) {
+      startId = $(this).parent().attr("id");
+    })
 
+    $(".blackMan").on("dragstart", function(event, ui) {
+      startId = $(this).parent().attr("id");
+    })
 
-var dragstartHandler = targetElement.ondragstart;
+    $( ".white" ).on( "drop", function( event, ui ) {
+      stopId = $(this).attr("id");
+      post('', {tasKonum: startId, oynanacakYer: stopId});
+    } );
 
-var man = document.getElementsByClassName(dragstartHandler);
-var startId = man[man.length - 1].parentNode.id;
+    $( ".black" ).on( "drop", function( event, ui ) {
+      stopId = $(this).attr("id");
+      post('', {tasKonum: startId, oynanacakYer: stopId});
+    } );
+
+});
 
 function post(path, params, method) {
-    method = method || "post"; // Set method to post by default if not specified.
+    method = method || "post";
 
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
     var form = document.createElement("form");
     {% csrf_token %}
     form.setAttribute("method", method);
@@ -45,6 +58,4 @@ function post(path, params, method) {
 
     document.body.appendChild(form);
     form.submit();
-}
-
-post('', {tasKonum: startId, oynanacakYer: stopId});
+}*/

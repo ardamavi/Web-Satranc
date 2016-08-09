@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{% static "jquery-ui.min.css" %}">
 
         <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
-        <script type="text/javascript" src="{% static "script.js" %}"></script>
+<!--        <script type="text/javascript" src="{% static "script.js" %}"></script-->
 
     </head>
 
@@ -46,13 +46,11 @@
 <div class="locationChar">H</div>
 <div class="locationCorner"></div>
     <center><hr/>
-        <span>By <a class="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a></span>
+        <span>By <a id="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a></span>
     </center>
 </div>
 
-
-
-        <!--<form method="post" style="width: 250px; padding: 20px;">
+        <form method="post" style="width: 250px; padding: 20px;">
             <br/>
     {% csrf_token %}
     <div class="form-group">
@@ -66,7 +64,88 @@
       <div style="padding-left: 55px;">
         <button type="submit" class="btn btn-default">Gönder</button>
       <div/>
-          </form>-->
+          </form>
+
+          <script>
+
+          $( function() {
+
+              $(".whiteMan").draggable({
+                  revert: 'invalid',
+                  snap: ".black , .white"
+              });
+
+              $(".blackMan").draggable({
+                  revert: 'invalid',
+                  snap: ".black , .white"
+              });
+
+
+              $(".white").droppable();
+
+              $(".black").droppable();
+
+              var startId = false;
+              var stopId = false;
+
+              $(".whiteMan, .blackMan").on("dragstart", function(event, ui) {
+                startId = $(this).parent().attr("id");
+              })
+
+/*              $(".blackMan").on("dragstart", function(event, ui) {
+                startId = $(this).parent().attr("id");
+              })*/
+
+              $( ".white, .black" ).on( "drop", function( event, ui ) {
+                stopId = $(this).attr("id");
+                post('', {tasKonum: startId, oynanacakYer: stopId});
+              } );
+
+              /*$( ".black" ).on( "drop", function( event, ui ) {
+                stopId = $(this).attr("id");
+              } );*/
+
+          });
+
+          function post(path, params, method) {
+            params.csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
+              $.ajax({
+                url: path,
+                method: 'POST',
+                data: params,
+                success: function(data){
+                  console.log(data);
+                },
+                error: function(){
+                  console.log("Hata !");
+                },
+                xhrFields: {
+                  withCredentials: true
+                }
+              });
+              /*method = method || "post";
+
+              var form = document.createElement("form");
+              form.setAttribute("method", method);
+              form.setAttribute("action", path);
+
+              for(var key in params) {
+                  if(params.hasOwnProperty(key)) {
+                      var hiddenField = document.createElement("input");
+                      hiddenField.setAttribute("type", "hidden");
+                      hiddenField.setAttribute("name", key);
+                      hiddenField.setAttribute("value", params[key]);
+
+                      form.appendChild(hiddenField);
+                   }
+              }
+
+              document.body.appendChild(form);
+              form.submit();*/
+          }
+
+
+          </script>
 
     </body>
 
