@@ -1,61 +1,50 @@
-/*$( function() {
+          $( function() {
 
-    $(".whiteMan").draggable({
-        revert: 'invalid',
-        snap: ".black , .white"
-    });
+              $(".whiteMan").draggable({
+                  revert: 'invalid',
+                  snap: ".black , .white"
+              });
 
-    $(".blackMan").draggable({
-        revert: 'invalid',
-        snap: ".black , .white"
-    });
+              $(".blackMan").draggable({
+                  revert: 'invalid',
+                  snap: ".black , .white"
+              });
 
 
-    $(".white").droppable();
+              $(".white").droppable();
 
-    $(".black").droppable();
+              $(".black").droppable();
 
-    startId = "";
+              var startId = false;
+              var stopId = false;
 
-    $(".whiteMan").on("dragstart", function(event, ui) {
-      startId = $(this).parent().attr("id");
-    })
+              $(".whiteMan, .blackMan").on("dragstart", function(event, ui) {
+                startId = $(this).parent().attr("id");
+              })
 
-    $(".blackMan").on("dragstart", function(event, ui) {
-      startId = $(this).parent().attr("id");
-    })
+              $(".white, .black").on( "drop", function( event, ui ) {
+                stopId = $(this).attr("id");
+                post('', {tasKonum: startId, oynanacakYer: stopId});
+              } );
 
-    $( ".white" ).on( "drop", function( event, ui ) {
-      stopId = $(this).attr("id");
-      post('', {tasKonum: startId, oynanacakYer: stopId});
-    } );
+          });
 
-    $( ".black" ).on( "drop", function( event, ui ) {
-      stopId = $(this).attr("id");
-      post('', {tasKonum: startId, oynanacakYer: stopId});
-    } );
-
-});
-
-function post(path, params, method) {
-    method = method || "post";
-
-    var form = document.createElement("form");
-    {% csrf_token %}
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-
-            form.appendChild(hiddenField);
-         }
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-}*/
+          function post(path, params, method) {
+            params.csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
+              $.ajax({
+                url: path,
+                method: 'POST',
+                data: params,
+                success: function(data){
+                  var $body = $("body");
+                  $body.children(".chessboard").remove();
+                  $body.prepend(data);
+                },
+                error: function(){
+                  console.log("Hata !");
+                },
+                xhrFields: {
+                  withCredentials: true
+                }
+              });
+          }

@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="chessboard">
+
+{% csrf_token %}
+
+<div class="locationCorner"></div>
+<div class="locationChar">A</div>
+<div class="locationChar">B</div>
+<div class="locationChar">C</div>
+<div class="locationChar">D</div>
+<div class="locationChar">E</div>
+<div class="locationChar">F</div>
+<div class="locationChar">G</div>
+<div class="locationChar">H</div>
+<div class="locationCorner"></div>
+
+{% for t in tahta %}
+    {{ t|safe }}
+{% endfor %}
+
+<div class="locationCorner"></div>
+<div class="locationChar">A</div>
+<div class="locationChar">B</div>
+<div class="locationChar">C</div>
+<div class="locationChar">D</div>
+<div class="locationChar">E</div>
+<div class="locationChar">F</div>
+<div class="locationChar">G</div>
+<div class="locationChar">H</div>
+<div class="locationCorner"></div>
+<center><hr/>
+<span>By <a id="footer" href="http://www.ardamavi.com" target="_blank">Arda Mavi</a></span>
+</center>
+</div>
+
+<script type="text/javascript" src="{% static "script.js" %}"></script>

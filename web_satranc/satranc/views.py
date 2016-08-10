@@ -86,7 +86,7 @@ class SatrancView(View):
                 number += 1
                 letter = 'a'
 
-        return render(request, 'satranc.html', {'tahta': tahta})
+        return render(request, 'base.html', {'tahta': tahta})
 
     def post(self, request):
 
@@ -169,4 +169,4 @@ class SatrancView(View):
                 number += 1
                 letter = 'a'
 
-        return render(request, 'satranc.html', {'tahta': tahta})
+        return render(request, 'board.html', {'tahta': tahta})
