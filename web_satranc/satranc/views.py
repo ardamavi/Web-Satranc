@@ -100,11 +100,12 @@ class SatrancView(View):
         # Tahta Bilgisi :
         gelen_veri, adres = socket_server.recvfrom(10000)
 
-        # Paketin Gönderilmesi :
-        socket_server.sendto(gidilecek_yer.encode('utf-8'), (haberlesme_ip, haberlesme_port))
+        if tas_konum != "kısa rok" and tas_konum != "uzun rok":
+            # Paketin Gönderilmesi :
+            socket_server.sendto(gidilecek_yer.encode('utf-8'), (haberlesme_ip, haberlesme_port))
 
-        # Tahta Bilgisi :
-        gelen_veri, adres = socket_server.recvfrom(10000)
+            # Tahta Bilgisi :
+            gelen_veri, adres = socket_server.recvfrom(10000)
 
         tahta = gelen_veri.decode()
 

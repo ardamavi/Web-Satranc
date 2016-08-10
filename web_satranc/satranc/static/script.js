@@ -24,7 +24,15 @@
 
               $(".white, .black").on( "drop", function( event, ui ) {
                 stopId = $(this).attr("id");
-                post('', {tasKonum: startId, oynanacakYer: stopId});
+
+                if((startId == "1e" && stopId == "1g") || (startId == "8e" && stopId == "8g")){
+                  post('', {tasKonum: "kısa rok", oynanacakYer: stopId});
+                }else if((startId == "1e" && stopId == "1c") || (startId == "8e" && stopId == "8c")){
+                  post('', {tasKonum: "uzun rok", oynanacakYer: stopId});
+                }else{
+                  post('', {tasKonum: startId, oynanacakYer: stopId});
+                }
+
               } );
 
           });
