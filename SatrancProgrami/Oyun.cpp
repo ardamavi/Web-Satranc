@@ -221,7 +221,7 @@ int main(){
         tahta.beyazRok = tahta.beyazRokKopya;
         tahta.siyahRok = tahta.siyahRokKopya;
 
-        cout << "Şahınızı kurtarmanız lazım !" << endl;
+        // cout << "Şahınızı kurtarmanız lazım !" << endl;
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
@@ -255,7 +255,7 @@ int main(){
         oynamaTamamMi = false;
 
         // Uyarı verilir :
-        cout << "Şahınızı tehlikeye atamazsınız !" << endl;
+        // cout << "Şahınızı tehlikeye atamazsınız !" << endl;
 
         // Hareket önceki tasların konumu tahtaya yerleştirilir :
         tahta.setTaslar(taslarKopya);

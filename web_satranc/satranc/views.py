@@ -109,8 +109,6 @@ class SatrancView(View):
 
         tahta = gelen_veri.decode()
 
-        print(tahta)
-
         tahta = tahta.split("\n")
 
         del tahta[0]
