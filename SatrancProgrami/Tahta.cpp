@@ -717,7 +717,7 @@ bool Tahta::patMi(takim oyunSirasi){
    }
   }
 
-  //cout << "Pat !" << endl;
+  cout << "Pat !" << endl;
 
   if (getOsAdi() == "Mac") {
     // Mac icin seslendirme :

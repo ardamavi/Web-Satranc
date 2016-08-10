@@ -221,7 +221,7 @@ int main(){
         tahta.beyazRok = tahta.beyazRokKopya;
         tahta.siyahRok = tahta.siyahRokKopya;
 
-        // cout << "Şahınızı kurtarmanız lazım !" << endl;
+        cout << "Şahınızı kurtarmanız lazım !" << endl;
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
@@ -255,7 +255,7 @@ int main(){
         oynamaTamamMi = false;
 
         // Uyarı verilir :
-        // cout << "Şahınızı tehlikeye atamazsınız !" << endl;
+        cout << "Şahınızı tehlikeye atamazsınız !" << endl;
 
         // Hareket önceki tasların konumu tahtaya yerleştirilir :
         tahta.setTaslar(taslarKopya);
@@ -295,7 +295,7 @@ int main(){
 
     // Sah ise sah olduğu belirtilir :
     if(sahDurum){
-      //cout << "Şah !" << endl;
+      cout << "Şah !" << endl;
 
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
@@ -305,7 +305,7 @@ int main(){
       // Oyunun mat olup olmadığı belirlenir:
       if(tahta.sahMatMi(takimOyunSirasi, tahta.tehditVarMi(tahta.rakipTakimSahKonum(takimOyunSirasi), takimOyunSirasi).second)){
         // Mat oldu !
-        //cout << "Mat !" << endl;
+        cout << "Mat !" << endl;
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
           system("say Mat!");

@@ -113,6 +113,15 @@ class SatrancView(View):
 
         del tahta[0]
 
+        if "\x1b[49m\x1b[39m" == tahta[0]:
+            del tahta[0]
+
+        if "Mat !" in tahta:
+            del tahta[0]
+
+        if "\x1b[H\x1b[2J\x1b[49m\x1b[39m" == tahta[0]:
+            del tahta[0]
+
         if "Hatalı Giriş !" not in tahta:
             for index in range(5):
                 del tahta[10]
