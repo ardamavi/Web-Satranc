@@ -124,6 +124,10 @@ int main(){
 
     // Yanlış oynama durumunda tasların yerini geri almak için :
     vector<Tas*> taslarKopya;
+
+    tahta.beyazRokKopya = tahta.beyazRok;
+    tahta.siyahRokKopya = tahta.siyahRok;
+
     // Taşlar kopyalanır:
     for (int i = 0; i < tahta.getTaslar()->size(); i++) {
       taslarKopya.push_back(new Tas(*(*(tahta.getTaslar()))[i]));
@@ -213,6 +217,10 @@ int main(){
       if(sahDurum == true){
         // Kopyalanan taslar tahtaya dizilir atanir :
         tahta.setTaslar(taslarKopya);
+
+        tahta.beyazRok = tahta.beyazRokKopya;
+        tahta.siyahRok = tahta.siyahRokKopya;
+
         cout << "Şahınızı kurtarmanız lazım !" << endl;
 
         if (tahta.getOsAdi() == "Mac") {
@@ -251,6 +259,9 @@ int main(){
 
         // Hareket önceki tasların konumu tahtaya yerleştirilir :
         tahta.setTaslar(taslarKopya);
+
+        tahta.beyazRok = tahta.beyazRokKopya;
+        tahta.siyahRok = tahta.siyahRokKopya;
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
@@ -391,6 +402,6 @@ int main(){
   }
 
     cout << "Son" << endl;
-    
+
     return 0;
 }

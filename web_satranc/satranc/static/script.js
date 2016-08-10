@@ -38,6 +38,7 @@
           });
 
           function post(path, params, method) {
+
             params.csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
               $.ajax({
                 url: path,
@@ -48,8 +49,7 @@
                   $body.children(".chessboard").remove();
                   $body.prepend(data);
                 },
-                error: function(){
-                  console.log("Hata !");
+                error: function(err){
                 },
                 xhrFields: {
                   withCredentials: true

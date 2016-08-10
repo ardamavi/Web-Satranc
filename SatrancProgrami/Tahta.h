@@ -27,6 +27,11 @@ class Tahta {
 
     pair<bool, bool> siyahRok;
 
+    // First: Kısa && Second: Uzun Kopya
+    pair<bool, bool> beyazRokKopya;
+
+    pair<bool, bool> siyahRokKopya;
+
     Tahta();
 
     void tahtaSil();

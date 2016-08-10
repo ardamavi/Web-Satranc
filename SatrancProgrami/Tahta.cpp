@@ -391,6 +391,9 @@ bool Tahta::sahMatMi(takim hareketEdenTakim, int tehditSira){
   }
   taslarKopya.clear();
 
+  beyazRokKopya = beyazRok;
+  siyahRokKopya = siyahRok;
+
   // Taşlar kopyalanır:
   for (int i = 0; i < getTaslar()->size(); i++) {
     taslarKopya.push_back(new Tas(*(*(getTaslar()))[i]));
@@ -400,6 +403,8 @@ bool Tahta::sahMatMi(takim hareketEdenTakim, int tehditSira){
   // Rok Yaparak Kaçabillir Mi? :
   if((rokYapma(strSahTakim, "kısa rok") == true && sahVarMi(hareketEdenTakim) == false) || (rokYapma(strSahTakim, "uzun rok") == true && sahVarMi(hareketEdenTakim) == false)){
     setTaslar(taslarKopya);
+    beyazRok = beyazRokKopya;
+    siyahRok = siyahRokKopya;
     return false;
   }
 
@@ -420,16 +425,24 @@ bool Tahta::sahMatMi(takim hareketEdenTakim, int tehditSira){
           delete(taslarKopya[i]);
         }
         taslarKopya.clear();
+
+        beyazRokKopya = beyazRok;
+        siyahRokKopya = siyahRok;
+
         // Taşlar kopyalanır:
         for (int i = 0; i < getTaslar()->size(); i++) {
           taslarKopya.push_back(new Tas(*(*(getTaslar()))[i]));
         }
         if(hareketEt(strSahTakim, sahKonum, make_pair(x,y)) && sahVarMi(hareketEdenTakim) == false){
           setTaslar(taslarKopya);
+          beyazRok = beyazRokKopya;
+          siyahRok = siyahRokKopya;
           return false;
         }
 
         setTaslar(taslarKopya);
+        beyazRok = beyazRokKopya;
+        siyahRok = siyahRokKopya;
       }
     }
   }
@@ -594,6 +607,7 @@ bool Tahta::rokYapma(string oyunSirasi, string hangiRok){
         return false;
       }
 
+      // Arada taş var mı :
       for(int x = 0, y = 1; y < 4; y++){
         for (int i = 0; i < taslar.size(); i++) {
           if(taslar[i]->getKonum() == make_pair(x, y)){
@@ -674,6 +688,9 @@ bool Tahta::patMi(takim oyunSirasi){
 
     if(tehditVarMi(make_pair(x, y), oyunSirasi).first){
 
+      beyazRokKopya = beyazRok;
+      siyahRokKopya = siyahRok;
+
       // Taşlar kopyalanır:
       for (int i = 0; i < getTaslar()->size(); i++) {
         taslarKopya.push_back(new Tas(*(*(getTaslar()))[i]));
@@ -681,9 +698,13 @@ bool Tahta::patMi(takim oyunSirasi){
 
       if(hareketEt(strOyunSirasi, taslar[(tehditVarMi(make_pair(x, y), oyunSirasi).second)]->getKonum(), make_pair(x, y)) && !(sahVarMi(oyunSirasi))){
         setTaslar(taslarKopya);
+        beyazRok = beyazRokKopya;
+        siyahRok = siyahRokKopya;
         return false;
       }else{
         setTaslar(taslarKopya);
+        beyazRok = beyazRokKopya;
+        siyahRok = siyahRokKopya;
       }
 
       for (int i = 0; i < taslarKopya.size(); i++)
