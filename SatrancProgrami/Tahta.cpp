@@ -4,6 +4,7 @@
 #include <vector>
 #include <utility>
 #include <cstdlib>
+#include <pthread.h>
 #include "Tas.h"
 #include "Kale.h"
 #include "At.h"
@@ -25,6 +26,16 @@ Color::Modifier defaultColor(Color::FG_DEFAULT);
 
 using namespace std;
 
+#define NUM_THREADS 1
+
+
+void *konusmaYap(void* soz){
+    string soz2 = *(static_cast<std::string*>(soz));
+    string say = "say " + soz2;
+    const char* sayCommand = say.c_str();
+    system(sayCommand);
+    pthread_exit(NULL);
+}
 
 Tahta::Tahta(){
 
@@ -721,7 +732,11 @@ bool Tahta::patMi(takim oyunSirasi){
 
   if (getOsAdi() == "Mac") {
     // Mac icin seslendirme :
-    system("say Pat!");
+    string soz = "Pat!";
+
+    pthread_t threads[NUM_THREADS];
+
+    pthread_create(&threads[0], NULL, konusmaYap, static_cast<void*>(&soz));
   }
 
   return true;

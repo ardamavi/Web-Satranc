@@ -4,6 +4,9 @@
 #include <string>
 #include <utility>
 #include <cstdlib>
+#include <pthread.h>
+#include <cstdlib>
+#include <string.h>
 #include "Color.h" // namespace Color
 #include "Tahta.h"
 #include "Tas.h"
@@ -20,6 +23,16 @@ Color::Modifier defaultColorbg(Color::BG_DEFAULT);
 
 using namespace std;
 
+#define NUM_THREADS 1
+
+void *konus(void* soz){
+    string soz2 = *(static_cast<std::string*>(soz));
+    string say = "say " + soz2;
+    const char* sayCommand = say.c_str();
+    system(sayCommand);
+    pthread_exit(NULL);
+}
+
 int harfToSayi(char harf){
   return ((int)(harf)-97);
 }
@@ -29,6 +42,11 @@ int sayiCharToSayi(char sayiChar){
 }
 
 int main(){
+
+    // Mac'de seslendirme için:
+    string soz;
+
+    pthread_t threads[NUM_THREADS];
 
     // Bir tahta oluşturulur :
     Tahta tahta;
@@ -91,7 +109,8 @@ int main(){
         cout << "\nHatalı Giriş !\n";
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          system("say Hatalı giriş!");
+          soz = "Hatalı giriş!";
+          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
         }
       }
 
@@ -100,12 +119,14 @@ int main(){
     if(oyunSirasi == "Beyaz"){
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
-        system("say Oyun sırası beyaz takımda!");
+        soz = "Oyun sırası beyaz takımda!";
+        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
       }
     }else if(oyunSirasi == "Siyah"){
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
-        system("say Oyun sırası siyah takımda!");
+        soz = "Oyun sırası siyah takımda!";
+        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
       }
     }
 
@@ -225,7 +246,8 @@ int main(){
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          system("say Şahınızı kurtarmanız lazım!");
+          soz = "Şahınızı kurtarmanız lazım!";
+          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
         }
 
         // Sah durumundan kurtulmadığı için tur tekrar oynanacaktır :
@@ -265,7 +287,8 @@ int main(){
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          system("say Şahınızı tehlikeye atamazsınız!");
+          soz = "Şahınızı tehlikeye atamazsınız!";
+          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
         }
       }
     }
@@ -299,7 +322,8 @@ int main(){
 
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
-        system("say Şah!");
+        soz = "Şah!";
+        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
       }
 
       // Oyunun mat olup olmadığı belirlenir:
@@ -308,7 +332,8 @@ int main(){
         cout << "Mat !" << endl;
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          system("say Mat!");
+          soz = "Mat!";
+          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
         }
 
         // Kazanan mat edendir :
@@ -387,19 +412,22 @@ int main(){
 
   if (tahta.getOsAdi() == "Mac") {
     // Mac icin seslendirme :
-    system("say Oyun Bitti!");
+    soz = "Oyun Bitti!";
+    pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
   }
 
   // Mac icin kazanan seslendirme:
   if(kazanan == "Beyaz"){
-    system("say Kazanan Beyaz takım!");
+    soz = "Kazanan Beyaz takım!";
   }else if(kazanan == "Siyah"){
-    system("say Kazanan Siyah takım!");
+    soz = "Kazanan Siyah takım!";
   }else if(kazanan == "Berabere"){
-    system("say Kazanan yok! Berabere!");
+    soz = "Kazanan yok! Berabere!";
   }else{
-    system("say Kazanan yok!");
+    soz = "Kazanan yok!";
   }
+
+    pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
 
     cout << "Son" << endl;
 

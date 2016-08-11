@@ -86,13 +86,14 @@ class SatrancView(View):
                 number += 1
                 letter = 'a'
 
-        return render(request, 'base.html', {'tahta': tahta})
+        order = "white"
+        return render(request, 'base.html', {'tahta': tahta, 'order': order})
 
     def post(self, request):
 
         tas_konum = request.POST['tasKonum']
         gidilecek_yer = request.POST['oynanacakYer']
-
+        order = request.POST['order']
 
         # Paketin Gönderilmesi :
         socket_server.sendto(tas_konum.encode('utf-8'), (haberlesme_ip, haberlesme_port))
@@ -111,6 +112,8 @@ class SatrancView(View):
 
         tahta = tahta.split("\n")
 
+        print(tahta)
+
         del tahta[0]
 
         if "\x1b[49m\x1b[39m" == tahta[0]:
@@ -123,11 +126,15 @@ class SatrancView(View):
             del tahta[0]
 
         if "Hatalı Giriş !" not in tahta:
+            order = "black" if order == "white" else "white"
             for index in range(5):
                 del tahta[10]
         else:
             for index in range(7):
                 del tahta[10]
+
+
+        print("--------------------------", tahta)
 
         array = []
 
@@ -179,4 +186,4 @@ class SatrancView(View):
                 number += 1
                 letter = 'a'
 
-        return render(request, 'board.html', {'tahta': tahta})
+        return render(request, 'board.html', {'tahta': tahta, 'order': order})
