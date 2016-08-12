@@ -112,8 +112,6 @@ class SatrancView(View):
 
         tahta = tahta.split("\n")
 
-        print(tahta)
-
         del tahta[0]
 
         if "\x1b[49m\x1b[39m" == tahta[0]:
@@ -132,9 +130,6 @@ class SatrancView(View):
         else:
             for index in range(7):
                 del tahta[10]
-
-
-        print("--------------------------", tahta)
 
         array = []
 

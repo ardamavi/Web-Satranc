@@ -23,7 +23,7 @@ Color::Modifier defaultColorbg(Color::BG_DEFAULT);
 
 using namespace std;
 
-#define NUM_THREADS 1
+#define NUM_THREADS 9
 
 void *konus(void* soz){
     string soz2 = *(static_cast<std::string*>(soz));
@@ -44,8 +44,17 @@ int sayiCharToSayi(char sayiChar){
 int main(){
 
     // Mac'de seslendirme için:
-    string soz;
+    string sozHataliGiris = "Hatalı giriş!";
+    string sozOyunSirasiBeyaz = "Oyun sırası beyaz takımda!";
+    string sozOyunSirasiSiyah = "Oyun sırası siyah takımda!";
+    string sozSahKurtar = "Şahınızı kurtarmanız lazım!";
+    string sozSahTehlikeOlmaz = "Şahınızı tehlikeye atamazsınız!";
+    string sozSahHaber = "Şah!";
+    string sozMatHaber = "Mat!";
+    string sozOyunBitti = "Oyun Bitti!";
+    string sozKazanan;
 
+    // Mac'de seslendirme için:
     pthread_t threads[NUM_THREADS];
 
     // Bir tahta oluşturulur :
@@ -109,8 +118,7 @@ int main(){
         cout << "\nHatalı Giriş !\n";
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          soz = "Hatalı giriş!";
-          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&sozHataliGiris));
         }
       }
 
@@ -119,14 +127,12 @@ int main(){
     if(oyunSirasi == "Beyaz"){
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
-        soz = "Oyun sırası beyaz takımda!";
-        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+        pthread_create(&threads[1], NULL, konus, static_cast<void*>(&sozOyunSirasiBeyaz));
       }
     }else if(oyunSirasi == "Siyah"){
       if (tahta.getOsAdi() == "Mac") {
-        // Mac icin seslendirme :
-        soz = "Oyun sırası siyah takımda!";
-        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+        // Mac icin seslendirme
+        pthread_create(&threads[2], NULL, konus, static_cast<void*>(&sozOyunSirasiSiyah));
       }
     }
 
@@ -246,8 +252,7 @@ int main(){
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          soz = "Şahınızı kurtarmanız lazım!";
-          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+          pthread_create(&threads[3], NULL, konus, static_cast<void*>(&sozSahKurtar));
         }
 
         // Sah durumundan kurtulmadığı için tur tekrar oynanacaktır :
@@ -287,8 +292,7 @@ int main(){
 
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          soz = "Şahınızı tehlikeye atamazsınız!";
-          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+          pthread_create(&threads[4], NULL, konus, static_cast<void*>(&sozSahTehlikeOlmaz));
         }
       }
     }
@@ -322,8 +326,7 @@ int main(){
 
       if (tahta.getOsAdi() == "Mac") {
         // Mac icin seslendirme :
-        soz = "Şah!";
-        pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+        pthread_create(&threads[5], NULL, konus, static_cast<void*>(&sozSahHaber));
       }
 
       // Oyunun mat olup olmadığı belirlenir:
@@ -332,8 +335,7 @@ int main(){
         cout << "Mat !" << endl;
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          soz = "Mat!";
-          pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+          pthread_create(&threads[6], NULL, konus, static_cast<void*>(&sozMatHaber));
         }
 
         // Kazanan mat edendir :
@@ -412,22 +414,21 @@ int main(){
 
   if (tahta.getOsAdi() == "Mac") {
     // Mac icin seslendirme :
-    soz = "Oyun Bitti!";
-    pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+    pthread_create(&threads[7], NULL, konus, static_cast<void*>(&sozOyunBitti));
   }
 
   // Mac icin kazanan seslendirme:
   if(kazanan == "Beyaz"){
-    soz = "Kazanan Beyaz takım!";
+    sozKazanan = "Kazanan Beyaz takım!";
   }else if(kazanan == "Siyah"){
-    soz = "Kazanan Siyah takım!";
+    sozKazanan = "Kazanan Siyah takım!";
   }else if(kazanan == "Berabere"){
-    soz = "Kazanan yok! Berabere!";
+    sozKazanan = "Kazanan yok! Berabere!";
   }else{
-    soz = "Kazanan yok!";
+    sozKazanan = "Kazanan yok!";
   }
 
-    pthread_create(&threads[0], NULL, konus, static_cast<void*>(&soz));
+    pthread_create(&threads[8], NULL, konus, static_cast<void*>(&sozKazanan));
 
     cout << "Son" << endl;
 
