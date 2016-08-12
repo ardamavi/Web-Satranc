@@ -50,9 +50,6 @@ int main(){
     string sozSahKurtar = "Şahınızı kurtarmanız lazım!";
     string sozSahTehlikeOlmaz = "Şahınızı tehlikeye atamazsınız!";
     string sozSahHaber = "Şah!";
-    string sozMatHaber = "Mat!";
-    string sozOyunBitti = "Oyun Bitti!";
-    string sozKazanan;
 
     // Mac'de seslendirme için:
     pthread_t threads[NUM_THREADS];
@@ -335,7 +332,7 @@ int main(){
         cout << "Mat !" << endl;
         if (tahta.getOsAdi() == "Mac") {
           // Mac icin seslendirme :
-          pthread_create(&threads[6], NULL, konus, static_cast<void*>(&sozMatHaber));
+          system("say Mat!");
         }
 
         // Kazanan mat edendir :
@@ -414,21 +411,19 @@ int main(){
 
   if (tahta.getOsAdi() == "Mac") {
     // Mac icin seslendirme :
-    pthread_create(&threads[7], NULL, konus, static_cast<void*>(&sozOyunBitti));
+    system("say Oyun Bitti!");
   }
 
   // Mac icin kazanan seslendirme:
   if(kazanan == "Beyaz"){
-    sozKazanan = "Kazanan Beyaz takım!";
+    system("say Kazanan Beyaz takım!");
   }else if(kazanan == "Siyah"){
-    sozKazanan = "Kazanan Siyah takım!";
+    system("say Kazanan Siyah takım!");
   }else if(kazanan == "Berabere"){
-    sozKazanan = "Kazanan yok! Berabere!";
+    system("say Kazanan yok! Berabere!");
   }else{
-    sozKazanan = "Kazanan yok!";
+    system("say Kazanan yok!");
   }
-
-    pthread_create(&threads[8], NULL, konus, static_cast<void*>(&sozKazanan));
 
     cout << "Son" << endl;
 
