@@ -16,10 +16,10 @@ C++ Satranç Programını Derleme Ve Çalıştırma: <br />
 (Compiling)<br />
 1. `SatrancProgrami/Satranc` dizine giriniz. <br />
 2. Kodları derlemek için `make` yazmanız yeterli.<br />
-3. Derleme sonrasında `SatrancProgrami/Satranc` diye uygulamamız oluştu.<br />
+3. Derleme sonrasında SatrancProgrami dizininde `Satranc` diye uygulamamız oluştu.<br />
 
 ##### Uygulamayı çalıştırmak için :
-Django kullandığımızdan manage.py dosyasını kullanarak için Server'ı başlatmamız gerekli.
+Django kullandığımızdan manage.py dosyasını kullanarak Server'ı başlatmamız gerekli.
 `python3 manage.py runserver` Komutu ile Server'i başlatabiliriz.
 
 İnternet sayfası ile C++ programımızın iletişimini sağlamak amacıyla sProcess uygulamamızı başlatmamız gerekli.
